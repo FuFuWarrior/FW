@@ -466,7 +466,7 @@ function validateCtrl(req, res) {
                                                     data: {
                                                         validation: {
                                                             error: false,
-                                                            field: `${rule.field}`,
+                                                            field: rule.field,
                                                             field_value: data[firstKey][secondKey],
                                                             condition: rule.condition,
                                                             condition_value: rule.condition_value
@@ -513,7 +513,7 @@ function validateCtrl(req, res) {
                         // Checks against "contains" condition rule
                         else if (rule.condition === 'contains') {
                             // Checks if the rule.field value is in the data array which results in a boolean
-                            if (data.includes(rule.field)) {
+                            if (data.includes(rule.condition_value)) {
                                 // Get the index of the value;
                                 let index = data.indexOf(rule.field);
                                 
